@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"name": "MIPS++",
+			"path": "mipsplusplus"
+		},
+		{
+			"name": "VS Code Extension",
+			"path": "vscode_extension"
+		},
+		{
+			"name": "root",
+			"path": "."
+		},
+	]
+}

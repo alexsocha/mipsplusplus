@@ -1,0 +1,34 @@
+@alias $num = $t3, $base = $t4, $i = $t5
+
+print numPrompt
+$num = input()
+
+print basePrompt
+$base = input()
+
+$i = 0
+calcLoop:
+  digits[$i] = $num % $base
+  $num = $num / $base
+
+  $i = $i + 1
+  goto calcLoop if $num > 0
+
+print convertedInfo
+printLoop:
+  $i = $i - 1
+  goto endPrintLoop if i < 0
+
+  @alias $digit = $t3
+  $digit = digits[$i]
+
+  goto printAsChar if $digit > 9
+
+  print $digit
+  goto printLoop
+
+  printAsChar:
+    print (55 + $digit) as char
+    goto printLoop
+endPrintLoop:
+exit

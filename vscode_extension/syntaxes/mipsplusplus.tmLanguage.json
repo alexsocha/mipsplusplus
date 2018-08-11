@@ -1,0 +1,77 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "MIPS++",
+	"patterns": [
+		{ "include": "#keywords" },
+		{ "include": "#constants" },
+		{ "include": "#strings1" },
+		{ "include": "#strings2" },
+		{ "include": "#storage" },
+		{ "include": "#comments" }
+	],
+	"repository": {
+		"keywords": {
+			"patterns": [{
+				  "name": "keyword.control.mipsplusplus",
+					"match": "\\b(if|goto|gotolink|exit|print|inputstr)\\b"
+				}, {
+					"name": "keyword.operator.mipsplusplus",
+					"match": "\\b(or|and|not|not|xor|as)\\b"
+				}, {
+					"name": "keyword.operator.mipsplusplus",
+					"match": "\\+ | \\- | \\* | / | % | << | >> | >>>"
+				}, {
+					"name": "keyword.operator.mipsplusplus",
+					"match": "= | == | != | < | > | >= | <="
+				}, {
+					"name": "keyword.other.mipsplusplus",
+					"match": "(@)alias"
+				}
+		  ]
+		},
+		"constants": {
+			"patterns": [{
+				"name": "constant.numeric.mipsplusplus",
+				"match": "(?x)\n (?<![\\w\\.])(?:\n [1-9](?: _?[0-9] )*\n |\n 0+\n |\n [0-9](?: _?[0-9] )* ([jJ])\n |\n 0 ([0-9]+)(?![eE\\.])\n)\\b\n"
+			}]
+		},
+		"comments": {
+			"patterns": [{
+				"name": "comment.line.number-sign.mipsplusplus",
+				"match": "(#).*$\n?"
+			}]
+		},
+		"storage": {
+			"patterns": [{
+				"name": "storage.type.mipsplusplus",
+				"match": "\\b(int|short|byte|char|string)\\b"
+			}, {
+				"name": "entity.name.function.mipsplusplus",
+				"match": "\\b(alloc|inputNum)\\b"
+			}]
+		},
+		"strings1": {
+			"name": "string.quoted.double.mipsplusplus",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.mipsplusplus",
+					"match": "\\\\."
+				}
+			]
+		},
+		"strings2": {
+			"name": "string.quoted.single.mipsplusplus",
+			"begin": "'",
+			"end": "'",
+			"patterns": [
+				{
+					"name": "constant.character.escape.mipsplusplus",
+					"match": "\\\\."
+				}
+			]
+		}
+	},
+	"scopeName": "source.mipsplusplus"
+}

@@ -1,0 +1,26 @@
+{
+    "name": "mipsplusplus",
+    "displayName": "mipsplusplus",
+    "description": "",
+    "version": "0.0.1",
+    "publisher": "alexsocha",
+    "engines": {
+        "vscode": "^1.25.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "mipsplusplus",
+            "aliases": ["MIPS++", "mipsplusplus"],
+            "extensions": [".mpp"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "mipsplusplus",
+            "scopeName": "source.mipsplusplus",
+            "path": "./syntaxes/mipsplusplus.tmLanguage.json"
+        }]
+    }
+}
