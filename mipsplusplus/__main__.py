@@ -33,7 +33,7 @@ try:
 
   fileOut = args.output if args.output is not None \
     else os.path.splitext(args.input)[0] + '.asm'
-  openFileOut = open(fileOut)
+  openFileOut = open(fileOut, 'w')
   openFileOut.write(COMPILE_HEADER + os.linesep.join(compiled))
   openFileOut.close()
 
