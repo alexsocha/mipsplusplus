@@ -1,4 +1,7 @@
 # MIPS++ Programming Language
+[![Build Status](https://travis-ci.com/alexsocha/mipsplusplus.svg?branch=master)](https://travis-ci.com/alexsocha/mipsplusplus)
+[![PyPI version](https://badge.fury.io/py/mipsplusplus.svg)](https://badge.fury.io/py/mipsplusplus)
+
 <img src="https://raw.githubusercontent.com/alexsocha/mipsplusplus/master/logo.svg?sanitize=true" align="left" hspace="10" width="150px">
 
 **MIPS++** is a low-level programming language based on the [MIPS architecture](https://en.wikipedia.org/wiki/MIPS_architecture). Its purpose is to generate faithful MIPS assembly code using a clearer syntax, with a focus on optimization. It is also a superset of MIPS.
