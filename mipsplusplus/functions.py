@@ -67,9 +67,12 @@ def parseInputStr(line, props):
   parsedAddr = expressions.parseRHS(arguments[0], props, '$a0', 'address')
   resultLines += parsedAddr['lines']
   
-  masSize = '20'
-  if len(arguments) > 1: masSize = arguments[1]
-  parsedSize = expressions.parseRHS(masSize, props, '$a1', 'number')
+  maxSize = '20'
+  if len(arguments) > 1: maxSize = arguments[1]
+  elif arguments[0] in props['variables']:
+    maxSize = str(props['variables'][arguments[0]]['initsize'])
+
+  parsedSize = expressions.parseRHS(maxSize, props, '$a1', 'number')
   resultLines += parsedSize['lines']
 
   return resultLines + [

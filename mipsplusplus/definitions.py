@@ -54,7 +54,7 @@ def parseDefinition(line, props):
       newLine = '{}: .space {}{}'.format(varName, initSize, comment)
       if numBytes != 1: newLine = '.align {}{}{}'.format(numBytes-1, os.linesep, newLine)
 
-    newVariable = { 'name': varName, 'type': varType, 'supertype': 'address', 'elemtype': ADDRESS_ELEMENT_TYPE_MAP[varType], 'init': varValue }
+    newVariable = { 'name': varName, 'type': varType, 'supertype': 'address', 'elemtype': ADDRESS_ELEMENT_TYPE_MAP[varType], 'init': varValue, 'initsize': initSize }
 
   if props['comment'] is not None: newLine += props['comment']
   return (newLine, newVariable)

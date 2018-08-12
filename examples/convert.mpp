@@ -1,3 +1,10 @@
+.data
+byte[30] digits
+string numPrompt = 'Enter number: '
+string basePrompt = 'Enter base: '
+string convertedPrompt = 'Converted: '
+
+.text
 @alias $num = $t3, $base = $t4, $i = $t5
 
 print numPrompt

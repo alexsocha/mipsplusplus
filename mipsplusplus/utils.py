@@ -1,5 +1,5 @@
 SYS_FUNCTIONS = ['input', 'alloc']
-REG_ALIASES = {'$_return': '$ra', '$_division': '$lo', '$_remainder': '$hi'}
+REG_ALIASES = {'$_division': '$lo', '$_remainder': '$hi'}
 class CompileException(Exception):
   def __init__(self, message, lineNumber=None, line=None):
     self.message = message

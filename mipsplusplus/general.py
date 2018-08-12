@@ -10,7 +10,7 @@ def setMode(mode, props):
 def storeToAddress(address, storeType, outputReg, props):
   if utils.isRegister(address): raise utils.CompileException('Can\'t store to register')
   numStoreFuncs = {'int': 'sw', 'short': 'sh', 'byte': 'sb', 'char': 'sb', 'number': 'sb'}
-  storeFunc = 'sb'
+  storeFunc = 'sw'
   if storeType in definitions.NUM_TYPES: storeFunc = numStoreFuncs[storeType]
   
   comment = utils.formatComment('{} = {}'.format(address, outputReg), props, 2)
@@ -26,7 +26,7 @@ def loadAsAddress(address, outputReg, props, outerInner = None):
 
 def loadFromAddress(address, loadType, outputReg, props, outerInner = None):
   numLoadFuncs = {'int': 'lw', 'short': 'lh', 'byte': 'lb', 'char': 'lb', 'number': 'lb', 'address': 'lw'}
-  loadFunc = 'lb'
+  loadFunc = 'lw'
   if definitions.getSupertype(loadType) == 'address': loadType = 'address'
   if loadType in numLoadFuncs: loadFunc = numLoadFuncs[loadType]
   if utils.isRegister(address): raise utils.CompileException('Can\'t load directly from register')
