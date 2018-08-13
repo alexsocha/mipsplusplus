@@ -1,5 +1,6 @@
 SYS_FUNCTIONS = ['input', 'alloc']
 REG_ALIASES = {'$_division': '$lo', '$_remainder': '$hi'}
+
 class CompileException(Exception):
   def __init__(self, message, lineNumber=None, line=None):
     self.message = message
@@ -76,7 +77,7 @@ def addIndentation(line, indentation, label):
   return label + indentation + line
 
 def formatComment(comment, props, commentLevel=1):
-  if props['comment'] != None: return props['comment']
+  if props['comment'] != None and commentLevel == 1: return props['comment']
   elif comment is None: return ''
   elif commentLevel <= props['commentLevel']:
     return ' # {}'.format(comment)

@@ -31,7 +31,7 @@ compiled = mipsplusplus.compile(lines=source.readlines(),
 
 ### Optional Parameters
 * **comments:** The level of commenting in the generated MIPS code.
-0 = none, 1 = minimal, 2 = almost every line. Defaults to 1.
+0 = None, 1 = Minimal, 2 = Almost every line. Defaults to 1.
 
 * **registers:** List of temporary registers (in order) for the compiler to use where necessary. These should not be used to store variables as they may be overridden. The compiler will indicate if more are required for any particular statement. Defaults to `[$t0, $t1, $t2]`.
 
@@ -204,7 +204,7 @@ goto $storedLabel
 goto label if x > 9
 goto label if $num + 4 != x
 goto $storedLabel if $num % 7 <= x / y
-goto $storedLabel if $condition1 and x < 8 # ($condition1 and x < 8) == 1
+goto $storedLabel if $condition1 and x < 8 # ($condition1 and x < 8) > 0
 
 # - With link (only < 0 and >= 0)
 gotolink label if $num < 0

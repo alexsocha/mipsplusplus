@@ -121,7 +121,7 @@ def parseRHS(expression, props, outputReg='any', inferredType='any'):
     elif i == len(splitExp) - 1:
       if outputReg == 'any':
         if val1 == '0': val1 = '$0'
-        if utils.isRegister(val1): targetReg = utils.getRegister(val1)
+        if utils.isRegister(val1): targetReg = val1
       parsed = parseSingleRHS(val1, limitedProps, targetReg, val1Type, val1AsAddress)
       resultLines += parsed['lines']
       val1Type, val1Addr = parsed['type'], parsed['address']
@@ -174,7 +174,7 @@ def parseSingleRHS(expression, props, outputReg, inferredType='any', loadAsAddre
   elif utils.isRegister(expression):
     if general.isRegHiLo(expression):
       resultLines.append(general.loadRegHiLo(expression, outputReg, props))
-    elif expression != outputReg:
+    elif utils.getRegister(expression) != utils.getRegister(outputReg):
       resultLines.append(general.loadRegister(expression, outputReg, props))
 
   # Variable
