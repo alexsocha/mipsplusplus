@@ -5,7 +5,7 @@ with open('README.md', 'r') as fh:
 
 setuptools.setup(
   name='mipsplusplus',
-  version='0.0.1b2',
+  version='0.0.1b3',
   author='Alex Socha',
   author_email='alex@alexsocha.com',
   description='A low-level programming language based on the MIPS architecture.',
