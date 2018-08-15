@@ -9,7 +9,7 @@ def setMode(mode, props):
 
 def storeToAddress(address, storeType, outputReg, props):
   if utils.isRegister(address): raise utils.CompileException('Can\'t store to register')
-  numStoreFuncs = {'int': 'sw', 'short': 'sh', 'byte': 'sb', 'char': 'sb', 'number': 'sb'}
+  numStoreFuncs = {'int': 'sw', 'short': 'sh', 'byte': 'sb', 'char': 'sb', 'number': 'sw'}
   storeFunc = 'sw'
   if storeType in definitions.NUM_TYPES: storeFunc = numStoreFuncs[storeType]
   
@@ -25,7 +25,7 @@ def loadAsAddress(address, outputReg, props, outerInner = None):
   return '{} {}, {}{}'.format('la', utils.getRegister(outputReg), address, comment)
 
 def loadFromAddress(address, loadType, outputReg, props, outerInner = None):
-  numLoadFuncs = {'int': 'lw', 'short': 'lh', 'byte': 'lb', 'char': 'lb', 'number': 'lb', 'address': 'lw'}
+  numLoadFuncs = {'int': 'lw', 'short': 'lh', 'byte': 'lb', 'char': 'lb', 'number': 'lw', 'address': 'lw'}
   loadFunc = 'lw'
   if definitions.getSupertype(loadType) == 'address': loadType = 'address'
   if loadType in numLoadFuncs: loadFunc = numLoadFuncs[loadType]
@@ -48,5 +48,5 @@ def isRegHiLo(reg):
   return utils.getRegister(reg) == '$hi' or utils.getRegister(reg) == '$lo'
 
 def loadRegHiLo(reg, outputReg, props):
-  comment = utils.formatComment('{} = {}'.format(reg, outputReg), props, 2)
+  comment = utils.formatComment('{} = {}'.format(outputReg, reg), props, 2)
   return 'mf{} {}{}'.format(reg[1:], utils.getRegister(outputReg), comment)

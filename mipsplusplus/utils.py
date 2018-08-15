@@ -46,7 +46,7 @@ def isChar(value):
 
 def isRegister(value):
   if value == '': return False
-  if not (value.replace(' ', '')[1:]).isalnum(): return False
+  if not (value.replace(' ', '').replace('_', '')[1:]).isalnum(): return False
   return value.startswith('$')
 def isTempRegister(value, tempRegisters=None):
   if isRegister(value) and value.startswith('$t'):
@@ -70,11 +70,17 @@ def getComment(line):
   firstPart = line.split('#')[0]
   return line[len(firstPart.rstrip()):]
 
+def isLabel(value):
+  return value.replace('_', '').isalnum()
+def hasLabel(line):
+  if not ':' in line: return False
+  return isLabel(line.split(':')[0].strip())
+
 def addIndentation(line, indentation, label):
   if isinstance(line, list):
-    if label != '': return [label] + [addIndentation(l, indentation + '  ', '') for l in line]
+    if label != '': return [indentation + label] + [addIndentation(l, indentation + '  ', '') for l in line]
     else: return [addIndentation(l, indentation, '') for l in line]
-  return label + indentation + line
+  return indentation + label + line
 
 def formatComment(comment, props, commentLevel=1):
   if props['comment'] != None and commentLevel == 1: return props['comment']
@@ -111,8 +117,7 @@ def formatOutput(lines):
           result.append(line[0])
         else:
           if i > 0 and not isinstance(lines[i-1], list) and shouldSeparateLine(lines[i-1]):
-            if not lines[i-1].endswith(':'): result.append('')
-
+            if not hasLabel(lines[i-1]): result.append('')
           result += formatLines(line)
           if i < len(lines) - 1 and shouldSeparateLine(lines[i+1]):
             result.append('')

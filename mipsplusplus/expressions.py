@@ -23,7 +23,7 @@ def parseRHS(expression, props, outputReg='any', inferredType='any'):
     val1, val2 = item, None
     val1Type, val2Type = inferredType, inferredType
     val1AsAddress, val2AsAddress = False, False
-    val1Addr, val2Addr = None, None # Havn't optimized address addition yet
+    val1Addr, val2Addr = None, None # Haven't optimized address addition yet
     reg1, reg2 = None, None
     limitedProps = utils.propsWithTempRegOffset(props, availableTempRegIdx)
     

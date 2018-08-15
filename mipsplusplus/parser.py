@@ -121,7 +121,7 @@ def isInBrackets(string, idx, b1='(', b2=')'):
     if i == idx: return bracketTeir > 0
 
 
-def isTopLevel(string, idx, b1='(', b2=')'):
+def isTopLevel(string, idx):
   if isInBrackets(string, idx, '(', ')'): return False
   if isInBrackets(string, idx, '[', ']'): return False
   isSingleQuote = False

@@ -16,7 +16,7 @@ parser.add_argument('-r', '--registers', metavar='register', nargs='+',
 args = parser.parse_args()
 
 COMPILE_HEADER = """# This file was generated using the MIPS++ programming language
-# and compiler: https://github.com/alexsocha/mipsplusplus
+# https://github.com/alexsocha/mipsplusplus
 
 """
 

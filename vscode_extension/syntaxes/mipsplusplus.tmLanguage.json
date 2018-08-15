@@ -47,7 +47,7 @@
 				"match": "\\b(int|short|byte|char|string)\\b"
 			}, {
 				"name": "entity.name.function.mipsplusplus",
-				"match": "\\b(alloc|inputNum)\\b"
+				"match": "\\b(alloc|input)\\b"
 			}]
 		},
 		"strings1": {

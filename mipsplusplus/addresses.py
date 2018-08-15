@@ -7,7 +7,7 @@ from mipsplusplus import definitions
 def isAddress(expression, props):
   if expression in props['variables']:
     return props['variables'][expression]['supertype'] == 'address'
-  return expression.isalnum() # Detect labels as addresses
+  return utils.isLabel(expression) # Detect labels as addresses
 
 def isArray(expression):
   return expression.endswith(']')
