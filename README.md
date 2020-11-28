@@ -19,7 +19,7 @@ pip install mipsplusplus
 Command line:
 ```
 python -m mipsplusplus path/to/source.mpp -o output.asm
---comments 1 --registers "$t0" "$t1" "$t1"
+--comments 1 --registers "$t0" "$t1" "$t2"
 ```
 
 Python:
