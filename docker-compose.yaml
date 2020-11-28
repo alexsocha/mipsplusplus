@@ -1,0 +1,14 @@
+version: '3.7'
+services:
+    build:
+        build:
+            context: .
+            target: setup
+        volumes:
+            - './dist:/app/dist'
+            - './build:/app/build'
+        image: mipsplusplus-build
+        command: bash -c "
+            python tests/test.py
+            && rm -rf build/* rm -rf dist/*
+            && python -m setup.py sdist bdist_wheel"

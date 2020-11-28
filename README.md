@@ -1,5 +1,6 @@
 # MIPS++ Programming Language
-[![Build Status](https://travis-ci.com/alexsocha/mipsplusplus.svg?branch=master)](https://travis-ci.com/alexsocha/mipsplusplus)
+
+![build](https://github.com/alexsocha/mipsplusplus/workflows/build/badge.svg)
 [![PyPI version](https://badge.fury.io/py/mipsplusplus.svg)](https://badge.fury.io/py/mipsplusplus)
 
 <img src="https://raw.githubusercontent.com/alexsocha/mipsplusplus/master/logo.svg?sanitize=true" align="left" hspace="10" width="150px">
